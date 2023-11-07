@@ -15,7 +15,7 @@ const SearchBar = (props) => {
 
   return (
     <div className="flex gap-5">
-      <div className="grid mx-auto items-center relative">
+      <div className="grid ml-auto items-center relative">
         <label
           className={`grid w-24 h-[50px] border-2 ${
             showList ? "rounded-t-lg" : "rounded-lg"
