@@ -15,7 +15,7 @@ import fireIcon from "../../../public/icons/fire.svg";
 
 const MainPage = (props) => {
   return (
-    <section className="flex section-margin py-5">
+    <section className="flex section-margin py-5 w-3/4 mx-auto">
       <div className="grid gap-5">
         {/** 검색창 */}
         <SearchBar />
@@ -38,7 +38,7 @@ const MainPage = (props) => {
         </CodeReviewSection>
 
         {/** 커뮤니티 섹션 */}
-        <div className="flex gap-5 place-self-end">
+        <div className="flex justify-between w-full p-6 border-2 rounded-xl shadow-md">
           <CommunitySection title="자유게시판">
             {freeBoardData.map((item) => (
               <>
