@@ -7,6 +7,10 @@
   @apply flex min-h-[webkit-fill-available] min-h-[100vh] flex-col;
 }
 
+.section-margin {
+  @apply px-5;
+}
+
 body {
   font-family: "Pretendard Variable", Pretendard, -apple-system,
     BlinkMacSystemFont, system-ui, Roboto, "Helvetica Neue", "Segoe UI",
