@@ -4,7 +4,7 @@
 @tailwind utilities;
 
 #root {
-  @apply flex min-h-[webkit-fill-available] min-h-[100vh] flex-col;
+  @apply min-h-[webkit-fill-available] min-h-[100vh];
 }
 
 .section-margin {
