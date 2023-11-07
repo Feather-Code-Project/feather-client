@@ -38,7 +38,7 @@ const FeatherNavBar = () => {
           <button>멘토링</button>
         </div>
 
-        <button className="flex gap-2 p-2 border border-white rounded-xl items-center">
+        <button className="flex gap-2 p-2 border-[2px] border-white rounded-xl items-center shadow-2xl">
           <img src={profileIcon} alt="profile" />
           <h1>프로필</h1>
         </button>
