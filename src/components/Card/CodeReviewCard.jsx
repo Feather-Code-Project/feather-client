@@ -16,7 +16,11 @@ const CodeReviewCard = ({ title, tag, text, writer, liked, comment }) => {
       <footer className="grid self-end gap-4">
         {/** 태그 */}
         <div className="flex gap-2">
-          <p className="text-[#0466C8]">#{tag}</p>
+          {tag.map((tag) => (
+            <p key={tag} className="text-[#0466C8]">
+              #{tag}
+            </p>
+          ))}
         </div>
 
         <div className="flex self-end justify-between">
@@ -44,7 +48,7 @@ const CodeReviewCard = ({ title, tag, text, writer, liked, comment }) => {
 CodeReviewCard.propTypes = {
   title: PropTypes.string.isRequired,
   text: PropTypes.string.isRequired,
-  tag: PropTypes.string, // 추후에 string -> array, isRequired로 변경
+  tag: PropTypes.array.isRequired, // 추후에 string -> array, isRequired로 변경
   writer: PropTypes.string.isRequired,
   liked: PropTypes.number.isRequired,
   comment: PropTypes.number.isRequired,
