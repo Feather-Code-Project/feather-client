@@ -27,7 +27,7 @@ const FeatherNavBar = () => {
           >
             <ul>커뮤니티</ul>
             {showList && (
-              <div className="grid absolute list-none px-5 w-32 mt-8 text-center bg-[#0353A4]">
+              <div className="grid absolute list-none px-5 w-32 mt-8 text-center bg-[#0353A4] rounded-lg">
                 <li className="py-2">자유게시판</li>
                 <li className="py-2">스터디</li>
                 <li className="py-2">Q&A</li>
