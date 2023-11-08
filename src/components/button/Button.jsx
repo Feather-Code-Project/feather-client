@@ -46,6 +46,7 @@ function Button({ children, size = "md", variant = "default" }) {
         cursor: "pointer",
         appearance: "none",
         userSelect: "none",
+        whiteSpace: "nowrap",
       }}
     >
       {children}
