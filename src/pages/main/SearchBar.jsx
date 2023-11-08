@@ -14,8 +14,8 @@ const SearchBar = (props) => {
   };
 
   return (
-    <div className="flex gap-5">
-      <div className="grid ml-auto items-center relative">
+    <div className="flex gap-5 w-full">
+      <div className="grid items-center relative">
         <label
           className={`grid w-24 h-[50px] border-2 ${
             showList ? "rounded-t-lg" : "rounded-lg"
@@ -44,7 +44,7 @@ const SearchBar = (props) => {
         )}
       </div>
 
-      <div className="flex gap-5 w-[1000px] h-[50px] border-2 rounded-full px-5 items-center shadow-md">
+      <div className="flex gap-5 w-full h-[50px] border-2 rounded-full px-5 items-center shadow-md">
         <input
           type="text"
           placeholder="궁금하신 모든 것을 여기에 적어주세요!"

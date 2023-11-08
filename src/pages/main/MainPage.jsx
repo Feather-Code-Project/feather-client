@@ -13,10 +13,15 @@ import SideListCard from "../../components/Card/SideListCard";
 
 import fireIcon from "../../../public/icons/fire.svg";
 
+import { css } from "@emotion/react"
+
 const MainPage = (props) => {
   return (
-    <section className="flex section-margin py-5 w-3/4 mx-auto">
-      <div className="grid gap-5">
+    <section className="flex section-margin py-5 w-full justify-center mx-auto">
+      <div className="grid gap-5 w-[70%]"
+        css={css`@media (max-width: 1300px) {
+          width: 80%; /* 화면 너비가 1300px 이하일 때 너비 80%로 증가*/}`}>
+
         {/** 검색창 */}
         <SearchBar />
 
@@ -89,8 +94,10 @@ const MainPage = (props) => {
       </div>
 
       {/** 우측 인기 글 */}
-      <div className="justify-start section-margin relative">
-        <div className="fixed flex flex-col gap-7">
+      <div className="right-popular grid w-[20%] section-margin"
+        css={css`@media (max-width: 1300px) {
+            display: none; /* 화면 너비가 1300px 이하일 때 숨김 처리 */}`}>
+        <div className="flex flex-col gap-7 fixed">
           <SideListCard
             title={
               <div className="flex gap-1 items-center">
