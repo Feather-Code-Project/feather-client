@@ -28,7 +28,10 @@ const MainPage = (props) => {
         {/** 코드 리뷰 */}
         <CodeReviewSection>
           <div className="flex justify-between">
-            {codeReviewData.map((item) => (
+            {/* TODO: 메인페이지에 표시될 카드 3개 필터링 어떻게 할지 */}
+            {codeReviewData
+            .filter((item) => item.id <= 3)
+            .map((item) => (
               <CodeReviewCard
                 key={item.id}
                 title={item.title}
