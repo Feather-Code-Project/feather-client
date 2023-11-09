@@ -5,18 +5,35 @@ import MentorCard from "./MentorCard";
 import MentorSection from "./MentorSection";
 import SearchFilter from "./Searchfilter";
 
+import { css } from "@emotion/react";
+
 const MentoringPage = () => {
   return (
-    <section className="flex section-margin mx-auto w-full py-5 justify-evenly">
-      <div className="w-[60%]">
-        <div className="flex justify-around mb-8">
+    <section className="flex section-margin mx-auto w-full py-5 justify-evenly max-w-screen-2xl">
+      <div className="w-[70%]">
+        <div
+          className="flex justify-between mb-8"
+          css={css`
+            @media (max-width: 1000px) {
+              display: block;
+            }
+          `}
+        >
           {/** 검색창 */}
           <MentoSearchBar />
 
           {/** 멘토지원 버튼 */}
-          <Button size="xl" variant="default">
-            멘토지원
-          </Button>
+          <div
+            css={css`
+              @media (max-width: 1000px) {
+                margin-top: 24px;
+              }
+            `}
+          >
+            <Button size="xl" variant="default">
+              멘토지원
+            </Button>
+          </div>
         </div>
 
         <div className="">
@@ -40,7 +57,14 @@ const MentoringPage = () => {
         </div>
       </div>
 
-      <div className="w-[20%] mt-12">
+      <div
+        className="w-[20%] mt-12"
+        css={css`
+          @media (max-width: 1000px) {
+            display: none;
+          }
+        `}
+      >
         {/** 우측 검색 필터 */}
         <SearchFilter />
       </div>

@@ -1,9 +1,21 @@
 import PropTypes from "prop-types";
 import profileIcon from "../../../public/icons/profile.svg";
 
+import { css } from "@emotion/react";
+
 const MentorCard = ({ title, duty, career, job, price, writer, date }) => {
   return (
-    <div className="grid w-[300px] h-[300px] p-4 my-4 border-2 rounded-xl shadow-md">
+    <div
+      className="grid basis-[32%] min-w-[240px] shrink-1 grow-1 h-[300px] p-4 my-4 border-2 rounded-xl shadow-md"
+      css={css`
+        @media (max-width: 1290px) {
+          flex-basis: 49%;
+        }
+        @media (max-width: 910px) {
+          flex-basis: 100%;
+        }
+      `}
+    >
       {/* 제목 */}
       <h1 className="font-semibold">{title}</h1>
       {/* 본문 */}
@@ -33,7 +45,7 @@ const MentorCard = ({ title, duty, career, job, price, writer, date }) => {
 MentorCard.propTypes = {
   title: PropTypes.string.isRequired,
   duty: PropTypes.string.isRequired,
-  career: PropTypes.string.isRequired, // 추후에 string -> array, isRequired로 변경
+  career: PropTypes.string.isRequired,
   job: PropTypes.string.isRequired,
   price: PropTypes.string.isRequired,
   writer: PropTypes.string.isRequired,
