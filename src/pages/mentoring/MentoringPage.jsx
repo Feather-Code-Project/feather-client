@@ -1,15 +1,35 @@
+import { useState } from "react";
+
 import { mentorData } from "../../../public/mocks/mentoringPageData";
 import MentoSearchBar from "./MentorSearchBar";
 import Button from "../../components/button/Button";
 import MentorCard from "./MentorCard";
 import MentorSection from "./MentorSection";
+import Pagination from "./Pagination";
 import SearchFilter from "./Searchfilter";
 
 import { css } from "@emotion/react";
 
 const MentoringPage = () => {
+  const itemsPerPage = 6; // 한 페이지당 보여줄 멘토카드의 수
+  const [currentPage, setCurrentPage] = useState(1); // 현재 페이지 상태
+
+  const mentorsRepeated = [];
+  for (let i = 0; i < 3; i++) {
+    mentorsRepeated.push(...mentorData);
+  }
+
+  // 현재 페이지에 해당하는 데이터를 계산.
+  const startIndex = (currentPage - 1) * itemsPerPage;
+  const endIndex = startIndex + itemsPerPage;
+  const mentorsOnCurrentPage = mentorsRepeated.slice(startIndex, endIndex);
+
+  const handlePageChange = (pageNumber) => {
+    setCurrentPage(pageNumber);
+  };
+
   return (
-    <section className="flex section-margin mx-auto w-full py-5 justify-evenly max-w-screen-2xl">
+    <section className="flex w-full py-5 mx-auto section-margin justify-evenly max-w-screen-2xl">
       <div className="w-[70%]">
         <div
           className="flex justify-between mb-8"
@@ -40,7 +60,7 @@ const MentoringPage = () => {
           {/** 멘토 게시물 섹션 */}
           <MentorSection>
             <div className="flex flex-wrap justify-between">
-              {mentorData.map((item) => (
+              {mentorsOnCurrentPage.map((item) => (
                 <MentorCard
                   key={item.id}
                   title={item.title}
@@ -52,6 +72,14 @@ const MentoringPage = () => {
                   date={item.date}
                 />
               ))}
+            </div>
+            <div className="flex justify-center">
+              <Pagination
+                itemsPerPage={itemsPerPage}
+                totalItems={mentorsRepeated.length}
+                currentPage={currentPage}
+                onPageChange={handlePageChange}
+              />
             </div>
           </MentorSection>
         </div>

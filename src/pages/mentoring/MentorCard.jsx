@@ -6,12 +6,12 @@ import { css } from "@emotion/react";
 const MentorCard = ({ title, duty, career, job, price, writer, date }) => {
   return (
     <div
-      className="grid basis-[32%] min-w-[240px] shrink-1 grow-1 h-[300px] p-4 my-4 border-2 rounded-xl shadow-md"
+      className="grid basis-[32%] min-w-[100px] shrink-1 grow-1 h-[300px] p-4 my-4 border-2 rounded-xl shadow-md"
       css={css`
-        @media (max-width: 1290px) {
+        @media (max-width: 1080px) {
           flex-basis: 49%;
         }
-        @media (max-width: 910px) {
+        @media (max-width: 740px) {
           flex-basis: 100%;
         }
       `}
@@ -34,7 +34,7 @@ const MentorCard = ({ title, duty, career, job, price, writer, date }) => {
           <img src={profileIcon} alt="user" />
           <p>{writer}</p>
         </div>
-        <div className="flex items-center">
+        <div className="flex items-center text-sm">
           <p>{date}</p>
         </div>
       </footer>
