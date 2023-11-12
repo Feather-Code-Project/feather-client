@@ -27,7 +27,7 @@ const MainPage = (props) => {
 
         {/** 코드 리뷰 */}
         <CodeReviewSection>
-          <div className="flex justify-between">
+          <div className="flex justify-between gap-4">
             {/* TODO: 메인페이지에 표시될 카드 3개 필터링 어떻게 할지 */}
             {codeReviewData
             .filter((item) => item.id <= 3)
@@ -46,7 +46,7 @@ const MainPage = (props) => {
         </CodeReviewSection>
 
         {/** 커뮤니티 섹션 */}
-        <div className="flex justify-between w-full p-6 border-2 rounded-xl shadow-md">
+        <div className="flex justify-between gap-4 w-full p-6 border-2 rounded-xl shadow-md">
           <CommunitySection title="자유게시판">
             {freeBoardData.map((item) => (
               <>
