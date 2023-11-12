@@ -5,7 +5,7 @@ import commentIcon from "../../../public/icons/comment.svg";
 
 const CodeReviewCard = ({ title, tag, text, writer, liked, comment }) => {
   return (
-    <div className="grid w-[32%] h-[300px] p-4 border-2 rounded-xl shadow-md">
+    <div className="grid w-[100%] h-[300px] p-4 border-2 rounded-xl shadow-md">
       {/** 제목 */}
       <h1 className="truncate font-semibold overflow-hidden">{title}</h1>
 
