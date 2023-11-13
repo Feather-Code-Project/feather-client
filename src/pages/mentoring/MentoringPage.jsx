@@ -1,6 +1,8 @@
 import { useState } from "react";
 
 import { mentorData } from "../../../public/mocks/mentoringPageData";
+import { SearchFilterData } from "../../../public/mocks/mentoringPageData";
+
 import MentoSearchBar from "./MentorSearchBar";
 import Button from "../../components/button/Button";
 import MentorCard from "./MentorCard";
@@ -13,9 +15,10 @@ import { css } from "@emotion/react";
 const MentoringPage = () => {
   const itemsPerPage = 6; // 한 페이지당 보여줄 멘토카드의 수
   const [currentPage, setCurrentPage] = useState(1); // 현재 페이지 상태
+  const [isFilterVisible, setIsFilterVisible] = useState(false);
 
   const mentorsRepeated = [];
-  for (let i = 0; i < 3; i++) {
+  for (let i = 0; i < 5; i++) {
     mentorsRepeated.push(...mentorData);
   }
 
@@ -26,6 +29,10 @@ const MentoringPage = () => {
 
   const handlePageChange = (pageNumber) => {
     setCurrentPage(pageNumber);
+  };
+
+  const toggleFilterVisibility = () => {
+    setIsFilterVisible((prev) => !prev);
   };
 
   return (
@@ -42,17 +49,33 @@ const MentoringPage = () => {
           {/** 검색창 */}
           <MentoSearchBar />
 
-          {/** 멘토지원 버튼 */}
           <div
             css={css`
               @media (max-width: 1000px) {
                 margin-top: 24px;
+                justify-content: space-between;
+                display: flex;
               }
             `}
           >
-            <Button size="xl" variant="default">
-              멘토지원
-            </Button>
+            <div>
+              {/** 멘토지원 버튼 */}
+              <Button size="xl" variant="default">
+                멘토지원
+              </Button>
+            </div>
+            <div
+              css={css`
+                @media (min-width: 1000px) {
+                  display: none;
+                }
+              `}
+            >
+              {/** 검색필터 버튼 */}
+              <Button size="xl" variant="blue" onClick={toggleFilterVisibility}>
+                검색필터
+              </Button>
+            </div>
           </div>
         </div>
 
@@ -89,12 +112,11 @@ const MentoringPage = () => {
         className="w-[20%] mt-12"
         css={css`
           @media (max-width: 1000px) {
-            display: none;
+            display: ${isFilterVisible ? "block" : "none"};
           }
         `}
       >
-        {/** 우측 검색 필터 */}
-        <SearchFilter />
+        <SearchFilter data={SearchFilterData} isVisible={isFilterVisible} />
       </div>
     </section>
   );
