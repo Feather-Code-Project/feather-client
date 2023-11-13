@@ -1,79 +1,59 @@
 import { useState } from "react";
+import { css } from "@emotion/react";
 
-const SearchFilter = () => {
-  const [openedMenu, setOpenedMenu] = useState(null);
+const SearchFilter = ({ data, isVisible }) => {
+  const [activeItems, setActiveItems] = useState([]);
 
-  const handleMenuToggle = (menu) => {
-    if (openedMenu === menu) {
-      setOpenedMenu(null);
-    } else {
-      setOpenedMenu(menu);
-    }
+  const handleItemClick = (id) => {
+    setActiveItems((prevItems) => {
+      const isItemActive = prevItems.includes(id);
+
+      if (isItemActive) {
+        // 이미 활성화된 아이템을 클릭하면 해당 아이템을 비활성화
+        return prevItems.filter((item) => item !== id);
+      } else {
+        // 활성화되지 않은 아이템을 클릭하면 해당 아이템을 활성화
+        return [...prevItems, id];
+      }
+    });
   };
 
   return (
-    <div className="h-auto p-4 shadow-md bg-white">
-      <div className="mb-2 p-4">
+    <div
+      className={`h-auto p-4 bg-white shadow-md ${
+        isVisible ? "h-screen mt-[70px] w-[25%] fixed right-0 top-0" : "block"
+      }`}
+    >
+      <div className="p-4 mb-2">
         <h2 className="text-xl font-bold">검색필터</h2>
       </div>
-      <ul className="space-y-2">
-        <li className="group cursor-pointer">
+      {data.map((item) => (
+        <div key={item.id} className="">
           <div
-            onClick={() => handleMenuToggle("경력별")}
-            className="flex items-center justify-between p-3 rounded-md hover:bg-blue-gray-100"
+            onClick={() => handleItemClick(item.id)}
+            css={css`
+              cursor: pointer;
+              background-color: ${activeItems.includes(item.id)
+                ? "#f0f0f0"
+                : "transparent"};
+              padding: 8px;
+              border-radius: 4px;
+            `}
           >
-            <span className="flex items-center space-x-2">
-              <span>{">"}</span>
-              <span className="text-blue-gray-800">경력별</span>
-            </span>
+            {item.title}
           </div>
-          {openedMenu === "경력별" && (
-            <ul className="pl-5 space-y-2">
-              <li>주니어</li>
-              <li>미들</li>
-              <li>시니어</li>
+          {activeItems.includes(item.id) && (
+            <ul className="ml-4">
+              {item.list.map((subItem) => (
+                <li key={subItem} className="mb-2">
+                  <input type="checkbox" className="mr-4" />
+                  {subItem}
+                </li>
+              ))}
             </ul>
           )}
-        </li>
-        <li className="group cursor-pointer">
-          <div
-            onClick={() => handleMenuToggle("직무별")}
-            className="flex items-center justify-between p-3 rounded-md hover:bg-blue-gray-100"
-          >
-            <span className="flex items-center space-x-2">
-              <span>{">"}</span>
-              <span className="text-blue-gray-800">직무별</span>
-            </span>
-          </div>
-          {openedMenu === "직무별" && (
-            <ul className="pl-5 space-y-2">
-              <li>프론트엔드</li>
-              <li>백엔드</li>
-              <li>풀스택</li>
-            </ul>
-          )}
-        </li>
-        <li className="group cursor-pointer">
-          <div
-            onClick={() => handleMenuToggle("가격별")}
-            className="flex items-center justify-between p-3 rounded-md hover:bg-blue-gray-100"
-          >
-            <span className="flex items-center space-x-2">
-              <span>{">"}</span>
-              <span className="text-blue-gray-800">가격별</span>
-            </span>
-          </div>
-          {openedMenu === "가격별" && (
-            <ul className="pl-5 space-y-2">
-              <li>시간당 10,000 ~ 20,000</li>
-              <li>시간당 20,000 ~ 30,000</li>
-              <li>시간당 30,000 ~ 40,000</li>
-              <li>시간당 40,000 ~ 50,000</li>
-              <li>시간당 50,000 ~ 60,000</li>
-            </ul>
-          )}
-        </li>
-      </ul>
+        </div>
+      ))}
     </div>
   );
 };

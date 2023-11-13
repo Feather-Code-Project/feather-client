@@ -150,3 +150,13 @@ export const mentorData = [
     date: "2023년 11월 21일",
   },
 ];
+
+export const SearchFilterData = [
+  { id: 1, title: "경력별", list: ["주니어", "미들", "시니어"] },
+  { id: 2, title: "직무별", list: ["프론트엔드", "백엔드", "풀스택"] },
+  {
+    id: 3,
+    title: "가격별",
+    list: ["시간당 1", "시간당 2", "시간당 3", "시간당 4"],
+  },
+];
