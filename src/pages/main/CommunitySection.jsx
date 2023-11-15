@@ -4,7 +4,7 @@ import rightArrowIcon from "../../../public/icons/rightArrow.svg";
 
 const CommunitySection = ({ children, title }) => {
   return (
-    <div className="grid w-[32%] h-[380px] p-5 border-2 rounded-xl shadow-md">
+    <div className="grid w-[100%] h-[380px] p-5 border-2 rounded-xl shadow-md">
       <div className="flex self-start justify-between items-center top-0">
         <h1 className="text-lg font-semibold">{title}</h1>
         <button>

@@ -2,7 +2,7 @@ import { css } from "@emotion/react";
 
 const colors = {
   default: "#24292f",
-  blue: "#ffffff"
+  blue: "#ffffff",
 };
 
 const backGroundColors = {
@@ -29,9 +29,10 @@ const sizeStyles = {
   },
 };
 
-function Button({ children, size = "md", variant = "default" }) {
+function Button({ children, size = "md", variant = "default", onClick }) {
   return (
     <button
+      onClick={onClick}
       css={{
         borderRadius: "6px",
         border: "1px solid rgba(27, 31, 36, 0.15)",
