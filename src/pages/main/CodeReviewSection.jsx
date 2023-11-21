@@ -4,7 +4,7 @@ import rightArrowIcon from "../../../public/icons/rightArrow.svg";
 
 const CodeReviewSection = ({ children }) => {
   return (
-    <div className="grid w-full h-[400px] p-6 border-2 rounded-xl shadow-md">
+    <div className="grid w-full p-6 border-2 rounded-xl shadow-md">
       <div className="flex self-start justify-between items-center mb-4">
         <h1 className="text-xl font-semibold">코드 리뷰</h1>
         <button>

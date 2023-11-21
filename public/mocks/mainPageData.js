@@ -157,10 +157,48 @@ export const sideListData = [
 ];
 
 export const bestTag = [
-  {tag: "Java"},
-  {tag: "JavaScript"},
-  {tag: "AWS"},
-  {tag: "C"},
-  {tag: "C++"},
-  {tag: "React"},
+  {
+    id: 1,
+    tag: "Java"
+  },
+  {
+    id: 2,
+    tag: "JavaScript"
+  },
+  {
+    id: 3,
+    tag: "AWS"
+  },
+  {
+    id: 4,
+    tag: "C"
+  },
+  {
+    id: 5,
+    tag: "C++"
+  },
+  {
+    id: 6,
+    tag: "React"
+  },
+  {
+    id: 7,
+    tag: "Python"
+  },
+  {
+    id: 8,
+    tag: "TypeScript"
+  },
+  {
+    id: 9,
+    tag: "NodeJS"
+  },
+  {
+    id: 10,
+    tag: "Vue"
+  },
+  {
+    id: 11,
+    tag: "Ruby"
+  },
 ]
