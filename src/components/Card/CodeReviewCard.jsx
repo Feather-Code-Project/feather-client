@@ -2,12 +2,23 @@ import PropTypes from "prop-types";
 import profileIcon from "../../../public/icons/profile.svg";
 import heartIcon from "../../../public/icons/heart.svg";
 import commentIcon from "../../../public/icons/comment.svg";
+import { css } from "@emotion/react";
 
 const CodeReviewCard = ({ title, tag, text, writer, liked, comment }) => {
   return (
-    <div className="grid w-[100%] h-[300px] p-4 border-2 rounded-xl shadow-md">
+    <div
+      className="grid basis-[32%] min-w-[100px] shrink-1 grow-1 h-[300px] p-4 my-4 border-2 rounded-xl shadow-md text-ellipsis overflow-hidden"
+      css={css`
+        @media (max-width: 1080px) {
+          flex-basis: 49%;
+        }
+        @media (max-width: 740px) {
+          flex-basis: 100%;
+        }
+      `}
+    >
       {/** 제목 */}
-      <h1 className="truncate font-semibold overflow-hidden">{title}</h1>
+      <h1 className="font-semibold text-ellipsis whitespace-nowrap overflow-hidden">{title}</h1>
 
       {/** 본문 */}
       <p className="text-ellipsis overflow-hidden">{text}</p>
