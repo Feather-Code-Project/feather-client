@@ -3,10 +3,20 @@ import profileIcon from "../../../public/icons/profile.svg";
 
 import { css } from "@emotion/react";
 
-const MentorCard = ({ title, duty, career, job, price, writer, date }) => {
+const MentorCard = ({
+  title,
+  duty,
+  career,
+  job,
+  price,
+  writer,
+  date,
+  onClick,
+}) => {
   return (
     <div
-      className="grid basis-[32%] min-w-[100px] shrink-1 grow-1 h-[300px] p-4 my-4 border-2 rounded-xl shadow-md"
+      className="grid basis-[32%] min-w-[100px] shrink-1 grow-1 h-[300px] p-4 my-4 border-2 rounded-xl shadow-md hover:shadow-xl cursor-pointer"
+      onClick={onClick}
       css={css`
         @media (max-width: 1080px) {
           flex-basis: 49%;
@@ -20,13 +30,13 @@ const MentorCard = ({ title, duty, career, job, price, writer, date }) => {
       <h1 className="font-semibold">{title}</h1>
       {/* 본문 */}
       <div className="space-y-2">
-        <p className="text-ellipsis overflow-hidden text-sm">직무 : {duty}</p>
-        <p className="text-ellipsis overflow-hidden text-sm">경력 : {career}</p>
-        <p className="text-ellipsis overflow-hidden text-sm">현직 : {job}</p>
-        <p className="text-ellipsis overflow-hidden text-sm">{price}</p>
+        <p className="overflow-hidden text-sm text-ellipsis">직무 : {duty}</p>
+        <p className="overflow-hidden text-sm text-ellipsis">경력 : {career}</p>
+        <p className="overflow-hidden text-sm text-ellipsis">현직 : {job}</p>
+        <p className="overflow-hidden text-sm text-ellipsis">{price}</p>
       </div>
 
-      <div className="border-b w-full border-[#A1A1A1]"></div>
+      <div className="border-b w-full border-[#A1A1A1]" />
 
       {/* Footer */}
       <footer className="flex self-end justify-between">
