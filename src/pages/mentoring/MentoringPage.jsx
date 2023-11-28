@@ -10,15 +10,19 @@ import MentorSection from "./MentorSection";
 import Pagination from "./Pagination";
 import SearchFilter from "./Searchfilter";
 import MentorInfoModal from "./MentorCardInfoModal";
+import MentorApplyModal from "./MentorApplyModal";
 
 import { css } from "@emotion/react";
 
 const MentoringPage = () => {
   const itemsPerPage = 6; // 한 페이지당 보여줄 멘토카드의 수
   const [currentPage, setCurrentPage] = useState(1); // 현재 페이지 상태
-  const [isFilterVisible, setIsFilterVisible] = useState(false);
+  const [isFilterVisible, setIsFilterVisible] = useState(false); // 검색필터 상태
+  // 멘토 게시물 세부정보 모달
   const [isShowMentorModal, setIsShowMentorModal] = useState();
   const [mentorInfoToShow, setMentorInfoToShow] = useState(null);
+  // 멘토 지원 모달
+  const [isShowMentorApplyModal, setIsShowMentorApplyModal] = useState();
 
   const mentorsRepeated = [];
   for (let i = 0; i < 5; i++) {
@@ -43,17 +47,25 @@ const MentoringPage = () => {
     setIsShowMentorModal(true);
   }
 
+  function handleMentorApply() {
+    setIsShowMentorApplyModal(true);
+  }
+
   function handleDone() {
     setIsShowMentorModal(false);
+    setIsShowMentorApplyModal(false);
   }
 
   return (
     <>
+      {/** 게시물 세부 정보 모달창 */}
+      {isShowMentorModal && (
+        <MentorInfoModal mentorInfo={mentorInfoToShow} onDone={handleDone} />
+      )}
+
+      {isShowMentorApplyModal && <MentorApplyModal onDone={handleDone} />}
+
       <section className="flex w-full py-5 mx-auto section-margin justify-evenly max-w-screen-2xl">
-        {/** 게시물 세부 정보 모달창 */}
-        {isShowMentorModal && (
-          <MentorInfoModal mentorInfo={mentorInfoToShow} onDone={handleDone} />
-        )}
         <div className="w-[70%]">
           <div
             className="flex justify-between mb-8"
@@ -77,7 +89,7 @@ const MentoringPage = () => {
             >
               <div>
                 {/** 멘토지원 버튼 */}
-                <Button size="xl" variant="default">
+                <Button size="xl" variant="default" onClick={handleMentorApply}>
                   멘토지원
                 </Button>
               </div>

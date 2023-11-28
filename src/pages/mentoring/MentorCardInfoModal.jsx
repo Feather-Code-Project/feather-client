@@ -11,8 +11,8 @@ const MentorInfoModal = ({ mentorInfo, onDone }) => {
       <h2 className="mb-4 text-xl font-bold text-center">{title}</h2>
 
       {/* 작성자 멘토 정보 */}
-      <div className="flex self-end mb-2">
-        <div className="flex items-center justify-between gap-1">
+      <div className="flex justify-between mb-2">
+        <div className="flex items-center gap-1">
           <img src={profileIcon} alt="user" />
           <p>{writer}</p>
         </div>
